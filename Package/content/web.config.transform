@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <system.web>
+    <httpModules>
+      <!-- Comment out this section if hosting in IIS 7.5 or IIS Express -->
+      <add name="WorkflowServiceTrackingViewer"
+           type="PeteGoo.WorkflowServiceTrackingViewer.TrackingViewerHttpModule, WorkflowServiceTrackingViewer" />
+    </httpModules>
+  </system.web>
+  <system.serviceModel>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <!-- Register the tracking participant behavior for the Workflow Service Tracking Viewer -->
+          <trackingViewerTrackingParticipant profileName="Troubleshooting Profile" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+    <extensions>
+      <behaviorExtensions>
+        <add name="trackingViewerTrackingParticipant"
+             type="PeteGoo.WorkflowServiceTrackingViewer.TrackingViewerExtensionElement, WorkflowServiceTrackingViewer" />
+      </behaviorExtensions>
+    </extensions>
+    <tracking>
+      <profiles>
+        <trackingProfile name="Troubleshooting Profile">
+          <workflow activityDefinitionId="*">
+            <workflowInstanceQueries>
+              <workflowInstanceQuery>
+                <states>
+                  <state name="*" />
+                </states>
+              </workflowInstanceQuery>
+            </workflowInstanceQueries>
+            <activityStateQueries>
+              <activityStateQuery activityName="*">
+                <states>
+                  <state name="*" />
+                </states>
+                <variables>
+                  <variable name="*"/>
+                </variables>
+              </activityStateQuery>
+            </activityStateQueries>
+            <activityScheduledQueries>
+              <activityScheduledQuery activityName="*"
+                                      childActivityName="*" />
+            </activityScheduledQueries>
+            <faultPropagationQueries>
+              <faultPropagationQuery faultSourceActivityName="*"
+                                     faultHandlerActivityName="*" />
+            </faultPropagationQueries>
+            <customTrackingQueries>
+              <customTrackingQuery name="*"
+                                   activityName="*" />
+            </customTrackingQueries>
+          </workflow>
+        </trackingProfile>
+        <trackingProfile name="Instance_And_Custom_Records">
+          <workflow activityDefinitionId="*">
+            <workflowInstanceQueries>
+              <workflowInstanceQuery>
+                <states>
+                  <state name="*" />
+                </states>
+              </workflowInstanceQuery>
+            </workflowInstanceQueries>
+            <customTrackingQueries>
+              <customTrackingQuery name="*"
+                                   activityName="*" />
+            </customTrackingQueries>
+          </workflow>
+        </trackingProfile>
+      </profiles>
+    </tracking>
+    
+  </system.serviceModel>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+      <!-- This section is used if we are running in IIS 7.5 or IIS Express-->
+      <add name="WorkflowServiceTrackingViewer"
+           type="PeteGoo.WorkflowServiceTrackingViewer.TrackingViewerHttpModule, WorkflowServiceTrackingViewer"/>
+    </modules>
+  </system.webServer>
+</configuration>

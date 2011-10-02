@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>WorkflowServiceTrackingViewer</id>
+    <version>0.1</version>
+    <authors>Peter Goodman</authors>
+    <owners>Peter Goodman</owners>
+	<title>Workflow Service Tracking Viewer</title>
+    <licenseUrl>http://creativecommons.org/licenses/by/3.0/</licenseUrl>
+    <projectUrl>http://blog.petegoo.com/index.php/2011/10/02/workflow-service-tracking-viewer/</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Provides an HTML Tracking Viewer that shows real-time tracking data for Workflow Foundation Service applications.
+	Use the http://mymachine/myworkflowapp/trackingviewer URL in your browser to view live tracking information
+	</description>
+	<releaseNotes>Initial beta release. Added readme file</releaseNotes>
+    <copyright>Copyright 2011</copyright>
+    <tags>WF4 HTML SignalR Workflow Service tracking logging xamlx</tags>
+    <dependencies>
+      <dependency id="SignalR.Server" version="0.3.3" />
+	  <dependency id="SignalR.Client" version="0.3.3" />
+    </dependencies>
+	<frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Activities" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Configuration" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Core" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Drawing" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Runtime.Serialization" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.ServiceModel" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.ServiceModel.Activities" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Web" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Xml.Linq" targetFramework="net40" />
+	  <frameworkAssembly assemblyName="System.Xml" targetFramework="net40" />
+    </frameworkAssemblies>
+  </metadata>
+</package>
